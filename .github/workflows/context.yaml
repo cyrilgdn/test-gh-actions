@@ -1,0 +1,18 @@
+name: github context
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: context
+
+    steps:
+      - name: print context
+        run: | 
+          cat <<EOF
+          ${{ toJSON(github) }}
+          EOF
